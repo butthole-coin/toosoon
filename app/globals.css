@@ -1,0 +1,306 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=UnifrakturMaguntia&family=JetBrains+Mono:wght@300;400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --void: #0a0a0a;
+  --ash: #1a1a1a;
+  --smoke: #2a2a2a;
+  --bone: #f5f5f0;
+  --ivory: #e8e8e0;
+  --blood: #8b0000;
+  --candle: #ffcc00;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Cormorant Garamond', serif;
+  background-color: var(--void);
+  color: var(--bone);
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--void);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--smoke);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--bone);
+}
+
+/* Film Grain Overlay */
+.grain-overlay {
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  right: -50%;
+  bottom: -50%;
+  width: 200%;
+  height: 200%;
+  background: transparent url('data:image/svg+xml,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noiseFilter)"/></svg>') repeat;
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 9999;
+  animation: grain 8s steps(10) infinite;
+}
+
+/* Gothic Text Styling */
+.gothic-text {
+  font-family: 'UnifrakturMaguntia', serif;
+  letter-spacing: 0.05em;
+}
+
+.display-text {
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+/* Candle Glow Effect */
+.candle-glow {
+  text-shadow: 
+    0 0 10px rgba(255, 204, 0, 0.5),
+    0 0 20px rgba(255, 204, 0, 0.3),
+    0 0 30px rgba(255, 204, 0, 0.2);
+}
+
+/* Death Date Badge */
+.death-badge {
+  position: relative;
+  padding: 4px 12px;
+  background: linear-gradient(135deg, var(--smoke) 0%, var(--ash) 100%);
+  border: 1px solid rgba(245, 245, 240, 0.1);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+}
+
+/* Tombstone Card Effect */
+.tombstone-card {
+  position: relative;
+  background: linear-gradient(180deg, var(--ash) 0%, var(--void) 100%);
+  border: 1px solid rgba(245, 245, 240, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tombstone-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--bone), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.tombstone-card:hover::before {
+  opacity: 0.5;
+}
+
+.tombstone-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(245, 245, 240, 0.2);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.5),
+    0 0 60px rgba(245, 245, 240, 0.03);
+}
+
+/* Drawer Animation */
+.drawer-enter {
+  transform: translateY(100%);
+}
+
+.drawer-enter-active {
+  transform: translateY(0);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.drawer-exit {
+  transform: translateY(0);
+}
+
+.drawer-exit-active {
+  transform: translateY(100%);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 1, 1);
+}
+
+/* Cross Divider */
+.cross-divider {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.cross-divider::before,
+.cross-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--bone), transparent);
+  opacity: 0.3;
+}
+
+/* RIP Pattern Background */
+.rip-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' font-family='serif' font-size='8' fill='%23ffffff' fill-opacity='0.03' transform='rotate(-15 30 30)'%3ERIP%3C/text%3E%3C/svg%3E");
+}
+
+/* Memorial Ribbon */
+.memorial-ribbon {
+  position: absolute;
+  top: 20px;
+  right: -30px;
+  background: var(--blood);
+  color: var(--bone);
+  padding: 4px 40px;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  transform: rotate(45deg);
+  font-family: 'Cinzel', serif;
+}
+
+/* Pulse Ring Animation */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(0.8);
+    opacity: 0.8;
+  }
+}
+
+.pulse-ring {
+  animation: pulse-ring 2s ease-in-out infinite;
+}
+
+/* Stagger Animation Classes */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+.stagger-6 { animation-delay: 0.6s; }
+.stagger-7 { animation-delay: 0.7s; }
+.stagger-8 { animation-delay: 0.8s; }
+
+/* Hide until animation triggers */
+.animate-on-scroll {
+  opacity: 0;
+}
+
+.animate-on-scroll.visible {
+  animation: slideUp 0.6s ease-out forwards;
+}
+
+/* Selection styling */
+::selection {
+  background: var(--bone);
+  color: var(--void);
+}
+
+/* Focus styling */
+:focus-visible {
+  outline: 1px solid var(--bone);
+  outline-offset: 2px;
+}
+
+/* Button base */
+.btn-memorial {
+  position: relative;
+  padding: 12px 32px;
+  background: transparent;
+  border: 1px solid var(--bone);
+  color: var(--bone);
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.btn-memorial::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--bone);
+  transition: left 0.4s ease;
+  z-index: -1;
+}
+
+.btn-memorial:hover {
+  color: var(--void);
+}
+
+.btn-memorial:hover::before {
+  left: 0;
+}
+
+/* Product badge */
+.sold-out-badge {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-12deg);
+  padding: 8px 24px;
+  background: rgba(139, 0, 0, 0.9);
+  color: var(--bone);
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  border: 1px solid var(--bone);
+  z-index: 10;
+}
+
+/* Loading skeleton */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--ash) 0%,
+    var(--smoke) 50%,
+    var(--ash) 100%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s ease-in-out infinite;
+}
+
+@keyframes skeleton-loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
