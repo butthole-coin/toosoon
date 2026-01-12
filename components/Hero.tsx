@@ -1,38 +1,16 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ArrowDown, Calendar, Cross } from 'lucide-react'
-import { Celebrity } from '@/lib/types'
+import { ArrowDown, Cross, Skull } from 'lucide-react'
 
 interface HeroProps {
-  featured: Celebrity
   videoUrl?: string
 }
 
-export default function Hero({ featured, videoUrl }: HeroProps) {
-  const formatDate = (dateStr: string) => {
-    const date = new Date(dateStr)
-    return date.toLocaleDateString('en-US', {
-      month: 'long',
-      day: 'numeric',
-      year: 'numeric'
-    })
-  }
-
-  const calculateAge = (birth: string, death: string) => {
-    const birthDate = new Date(birth)
-    const deathDate = new Date(death)
-    let age = deathDate.getFullYear() - birthDate.getFullYear()
-    const monthDiff = deathDate.getMonth() - birthDate.getMonth()
-    if (monthDiff < 0 || (monthDiff === 0 && deathDate.getDate() < birthDate.getDate())) {
-      age--
-    }
-    return age
-  }
-
+export default function Hero({ videoUrl }: HeroProps) {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Video or Image */}
+      {/* Background Video or Fallback */}
       <div className="absolute inset-0 z-0">
         {videoUrl ? (
           <>
@@ -47,19 +25,13 @@ export default function Hero({ featured, videoUrl }: HeroProps) {
               <source src={videoUrl} type="video/mp4" />
             </video>
             {/* Dark overlay for video */}
-            <div className="absolute inset-0 bg-void/60" />
+            <div className="absolute inset-0 bg-void/70" />
           </>
         ) : (
-          <div
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
-            style={{
-              backgroundImage: `url(${featured.imageUrl})`,
-              filter: 'grayscale(100%)'
-            }}
-          />
+          <div className="absolute inset-0 bg-void" />
         )}
-        <div className="absolute inset-0 bg-gradient-to-b from-void/80 via-void/40 to-void" />
-        <div className="absolute inset-0 bg-gradient-to-r from-void/60 via-transparent to-void/60" />
+        <div className="absolute inset-0 bg-gradient-to-b from-void/90 via-void/50 to-void" />
+        <div className="absolute inset-0 bg-gradient-to-r from-void/70 via-transparent to-void/70" />
       </div>
 
       {/* Content */}
@@ -71,80 +43,90 @@ export default function Hero({ featured, videoUrl }: HeroProps) {
           transition={{ duration: 1, delay: 0.2 }}
           className="mb-8"
         >
-          <div className="inline-flex items-center justify-center w-16 h-16 border border-bone/20 rounded-full">
-            <Cross className="w-6 h-6 text-bone/60" />
+          <div className="inline-flex items-center justify-center w-20 h-20 border border-candle/30 rounded-full">
+            <Skull className="w-8 h-8 text-candle/80" />
           </div>
         </motion.div>
 
-        {/* Death Dates */}
+        {/* Tagline */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
           className="mb-6"
         >
-          <span className="death-badge inline-block">
-            {formatDate(featured.birthDate)} — {formatDate(featured.deathDate)}
+          <span className="display-text text-[10px] sm:text-xs tracking-[0.4em] text-bone/50">
+            MEMORIAL MERCHANDISE FOR LEGENDS
           </span>
         </motion.div>
 
-        {/* Name */}
+        {/* Brand Name */}
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="gothic-text text-6xl sm:text-7xl md:text-8xl lg:text-9xl mb-6 candle-glow"
+          className="gothic-text text-7xl sm:text-8xl md:text-9xl lg:text-[12rem] mb-6 candle-glow"
         >
-          {featured.name}
+          Too Soon
         </motion.h1>
 
-        {/* Full Name */}
+        {/* Subtitle */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
           className="display-text text-sm tracking-[0.3em] text-bone/60 mb-8"
         >
-          {featured.fullName}
+          GONE BUT NEVER FORGOTTEN
         </motion.p>
 
-        {/* Bio */}
+        {/* Description */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1 }}
-          className="font-body text-xl md:text-2xl text-bone/80 max-w-2xl mx-auto mb-12 leading-relaxed"
+          className="font-body text-xl md:text-2xl text-bone/70 max-w-2xl mx-auto mb-12 leading-relaxed"
         >
-          {featured.shortBio}
+          Premium memorial apparel honoring the icons who left us too soon.
+          Each piece is a tribute to their legacy, designed with reverence and crafted with care.
         </motion.p>
 
-        {/* Age Badge */}
+        {/* Stats */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.2 }}
-          className="mb-12"
+          className="flex flex-wrap justify-center gap-8 mb-12"
         >
-          <span className="inline-block px-6 py-2 border border-bone/20 font-mono text-sm tracking-wider">
-            {calculateAge(featured.birthDate, featured.deathDate)} YEARS OLD
-          </span>
+          <div className="text-center">
+            <span className="block gothic-text text-3xl md:text-4xl candle-glow">8+</span>
+            <span className="display-text text-[10px] tracking-widest text-bone/40">LEGENDS</span>
+          </div>
+          <div className="text-center">
+            <span className="block gothic-text text-3xl md:text-4xl candle-glow">100%</span>
+            <span className="display-text text-[10px] tracking-widest text-bone/40">PREMIUM</span>
+          </div>
+          <div className="text-center">
+            <span className="block gothic-text text-3xl md:text-4xl candle-glow">LIMITED</span>
+            <span className="display-text text-[10px] tracking-widest text-bone/40">EDITIONS</span>
+          </div>
         </motion.div>
 
-        {/* CTA */}
+        {/* CTA Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.4 }}
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
-          <a href="/shop" className="btn-memorial">
-            Shop Collection
+          <a href="#archive" className="btn-memorial">
+            Browse Collection
           </a>
-          <a 
-            href="#archive" 
+          <a
+            href="#about"
             className="btn-memorial bg-bone/5 hover:bg-bone/10 border-bone/30"
           >
-            View Archive
+            Learn More
           </a>
         </motion.div>
 

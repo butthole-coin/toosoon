@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useMemo } from 'react'
+import { useState } from 'react'
 import dynamic from 'next/dynamic'
 import { celebrities } from '@/lib/data'
 import { Celebrity } from '@/lib/types'
@@ -22,10 +22,6 @@ export default function Home() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
   const [isSearchOpen, setIsSearchOpen] = useState(false)
 
-  const featuredCelebrity = useMemo(() => {
-    return celebrities.find(c => c.featured) || celebrities[0]
-  }, [])
-
   const handleCelebrityClick = (celebrity: Celebrity) => {
     setSelectedCelebrity(celebrity)
     setIsDrawerOpen(true)
@@ -46,10 +42,7 @@ export default function Home() {
       <Header onSearchOpen={() => setIsSearchOpen(true)} />
 
       {/* Hero Section */}
-      <Hero
-        featured={featuredCelebrity}
-        videoUrl="https://quantum-assets.fly.dev/assets/Runway_stitch_videos_d1bf1fac-34d6-42e6-9067-706d6b5ad273.mp4"
-      />
+      <Hero videoUrl="https://quantum-assets.fly.dev/assets/Runway_stitch_videos_d1bf1fac-34d6-42e6-9067-706d6b5ad273.mp4" />
 
       {/* Celebrity Grid */}
       <CelebrityGrid 
