@@ -60,15 +60,22 @@ export default function Hero({ videoUrl }: HeroProps) {
           </span>
         </motion.div>
 
-        {/* Brand Name */}
-        <motion.h1
+        {/* Brand Logo */}
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="gothic-text text-7xl sm:text-8xl md:text-9xl lg:text-[12rem] mb-6 candle-glow"
+          className="mb-6"
         >
-          Too Soon
-        </motion.h1>
+          <img
+            src="https://quantum-assets.fly.dev/assets/logo%20no%20bck.png"
+            alt="Too Soon"
+            className="h-32 sm:h-40 md:h-52 lg:h-64 w-auto mx-auto object-contain drop-shadow-[0_0_30px_rgba(255,204,0,0.5)] brightness-110"
+            style={{
+              filter: 'drop-shadow(0 0 20px rgba(255, 204, 0, 0.4)) drop-shadow(0 0 40px rgba(255, 204, 0, 0.2))'
+            }}
+          />
+        </motion.div>
 
         {/* Subtitle */}
         <motion.p

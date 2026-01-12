@@ -47,10 +47,11 @@ export default function Header({ onSearchOpen }: HeaderProps) {
             {/* Logo */}
             <div className="flex-1 flex justify-center lg:justify-start">
               <a href="/" className="group relative">
-                <span className="gothic-text text-3xl lg:text-4xl tracking-wider text-bone group-hover:opacity-80 transition-opacity">
-                  toosoon
-                </span>
-                <span className="absolute -bottom-1 left-0 w-0 h-px bg-bone transition-all duration-300 group-hover:w-full" />
+                <img
+                  src="https://quantum-assets.fly.dev/assets/logo%20no%20bck.png"
+                  alt="Too Soon"
+                  className="h-10 lg:h-12 w-auto object-contain group-hover:opacity-80 transition-opacity"
+                />
               </a>
             </div>
 
@@ -111,7 +112,11 @@ export default function Header({ onSearchOpen }: HeaderProps) {
             >
               <div className="flex flex-col h-full">
                 <div className="flex items-center justify-between p-6 border-b border-bone/10">
-                  <span className="gothic-text text-2xl">toosoon</span>
+                  <img
+                    src="https://quantum-assets.fly.dev/assets/logo%20no%20bck.png"
+                    alt="Too Soon"
+                    className="h-8 w-auto object-contain"
+                  />
                   <button
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="p-2 hover:bg-bone/5 rounded transition-colors"
