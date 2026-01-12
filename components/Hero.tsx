@@ -6,15 +6,16 @@ import { Celebrity } from '@/lib/types'
 
 interface HeroProps {
   featured: Celebrity
+  videoUrl?: string
 }
 
-export default function Hero({ featured }: HeroProps) {
+export default function Hero({ featured, videoUrl }: HeroProps) {
   const formatDate = (dateStr: string) => {
     const date = new Date(dateStr)
-    return date.toLocaleDateString('en-US', { 
-      month: 'long', 
-      day: 'numeric', 
-      year: 'numeric' 
+    return date.toLocaleDateString('en-US', {
+      month: 'long',
+      day: 'numeric',
+      year: 'numeric'
     })
   }
 
@@ -31,17 +32,34 @@ export default function Hero({ featured }: HeroProps) {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
+      {/* Background Video or Image */}
       <div className="absolute inset-0 z-0">
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
-          style={{ 
-            backgroundImage: `url(${featured.imageUrl})`,
-            filter: 'grayscale(100%)'
-          }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-void via-void/80 to-void" />
-        <div className="absolute inset-0 bg-gradient-to-r from-void via-transparent to-void" />
+        {videoUrl ? (
+          <>
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover"
+              style={{ filter: 'grayscale(30%)' }}
+            >
+              <source src={videoUrl} type="video/mp4" />
+            </video>
+            {/* Dark overlay for video */}
+            <div className="absolute inset-0 bg-void/60" />
+          </>
+        ) : (
+          <div
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
+            style={{
+              backgroundImage: `url(${featured.imageUrl})`,
+              filter: 'grayscale(100%)'
+            }}
+          />
+        )}
+        <div className="absolute inset-0 bg-gradient-to-b from-void/80 via-void/40 to-void" />
+        <div className="absolute inset-0 bg-gradient-to-r from-void/60 via-transparent to-void/60" />
       </div>
 
       {/* Content */}

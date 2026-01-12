@@ -46,7 +46,10 @@ export default function Home() {
       <Header onSearchOpen={() => setIsSearchOpen(true)} />
 
       {/* Hero Section */}
-      <Hero featured={featuredCelebrity} />
+      <Hero
+        featured={featuredCelebrity}
+        videoUrl="https://quantum-assets.fly.dev/assets/Runway_stitch_videos_d1bf1fac-34d6-42e6-9067-706d6b5ad273.mp4"
+      />
 
       {/* Celebrity Grid */}
       <CelebrityGrid 
