@@ -50,7 +50,7 @@ export default function Header({ onSearchOpen }: HeaderProps) {
                 <img
                   src="https://quantum-assets.fly.dev/assets/logo%20no%20bck.png"
                   alt="Too Soon"
-                  className="h-10 lg:h-12 w-auto object-contain group-hover:opacity-80 transition-opacity"
+                  className="h-10 lg:h-12 w-auto object-contain group-hover:opacity-80 transition-opacity invert"
                 />
               </a>
             </div>
@@ -115,7 +115,7 @@ export default function Header({ onSearchOpen }: HeaderProps) {
                   <img
                     src="https://quantum-assets.fly.dev/assets/logo%20no%20bck.png"
                     alt="Too Soon"
-                    className="h-8 w-auto object-contain"
+                    className="h-8 w-auto object-contain invert"
                   />
                   <button
                     onClick={() => setIsMobileMenuOpen(false)}
