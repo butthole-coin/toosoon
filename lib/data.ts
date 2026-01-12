@@ -12,7 +12,7 @@ export const celebrities: Celebrity[] = [
     knownFor: 'Founding Paper Route Empire',
     shortBio: 'Memphis legend. Paper Route Empire founder. Forever the King of Memphis.',
     longBio: 'Adolph Robert Thornton Jr., known professionally as Young Dolph, was an American rapper and record executive. Born in Chicago and raised in Memphis, he founded the independent record label Paper Route Empire. Known for his entrepreneurial spirit and loyalty to his Memphis roots, Dolph built a legacy that transcended music. His authentic approach to the game and dedication to independence made him a icon in hip-hop.',
-    imageUrl: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/5/5e/Young_Dolph_February_2017.png',
     genres: ['hip-hop', 'trap', 'southern rap'],
     featured: true,
     dropDates: ['2024-11-17', '2023-11-17'],
@@ -52,7 +52,7 @@ export const celebrities: Celebrity[] = [
     knownFor: 'The Jerry Springer Show',
     shortBio: 'Talk show icon. Political figure turned entertainer. Chaos curator.',
     longBio: 'Gerald Norman Springer was an English-born American television presenter, actor, and politician best known for hosting the tabloid talk show The Jerry Springer Show from 1991 to 2018. Before his television career, Springer served on the Cincinnati City Council and as Mayor of Cincinnati. His show became synonymous with provocative content and became a cultural phenomenon.',
-    imageUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/9/9a/Jerry_Springer_at_Emory_%28cropped%29.jpg',
     genres: ['television', 'entertainment', 'talk show'],
     featured: false,
     dropDates: ['2024-04-27'],
@@ -91,7 +91,7 @@ export const celebrities: Celebrity[] = [
     profession: 'Rapper, Actor',
     knownFor: 'Its Dark and Hell Is Hot',
     shortBio: 'Dark Man X. Ruff Ryders legend. Voice of the streets.',
-    imageUrl: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/9/9f/DMX.rapper_%28cropped%29.jpg',
     genres: ['hip-hop', 'hardcore rap'],
     dropDates: ['2024-04-09'],
     products: [
@@ -118,7 +118,7 @@ export const celebrities: Celebrity[] = [
     profession: 'Basketball Player',
     knownFor: 'LA Lakers, 5x NBA Champion',
     shortBio: 'Black Mamba. Five-time champion. Mamba mentality forever.',
-    imageUrl: 'https://images.unsplash.com/photo-1546519638-68e109498ffc?w=800',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Kobe_Bryant_Dec_2014.jpg/800px-Kobe_Bryant_Dec_2014.jpg',
     genres: ['sports', 'basketball', 'nba'],
     dropDates: ['2024-01-26'],
     products: [
@@ -145,7 +145,7 @@ export const celebrities: Celebrity[] = [
     profession: 'Rapper, Producer',
     knownFor: 'Swimming, Blue Slide Park',
     shortBio: 'Pittsburgh poet. Musical visionary. Most dope forever.',
-    imageUrl: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Mac_Miller_%287%29_%E2%80%93_splash%21_Festival_20_%282017%29_%28cropped%29.jpg/800px-Mac_Miller_%287%29_%E2%80%93_splash%21_Festival_20_%282017%29_%28cropped%29.jpg',
     genres: ['hip-hop', 'alternative rap', 'jazzy'],
     dropDates: ['2024-09-07'],
     products: [
@@ -172,7 +172,7 @@ export const celebrities: Celebrity[] = [
     profession: 'Rapper, Entrepreneur',
     knownFor: 'Victory Lap, Marathon Clothing',
     shortBio: 'Marathon continues. Crenshaw legend. Community first.',
-    imageUrl: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Soundtrack_Beat_Battle_Judging_Panel_March2011_%28cropped%29.jpg/800px-Soundtrack_Beat_Battle_Judging_Panel_March2011_%28cropped%29.jpg',
     genres: ['hip-hop', 'west coast rap'],
     dropDates: ['2024-03-31'],
     products: [
@@ -199,7 +199,7 @@ export const celebrities: Celebrity[] = [
     profession: 'Rapper, Singer',
     knownFor: 'Lucid Dreams, Legends Never Die',
     shortBio: 'Emo rap pioneer. 999 forever. Legends never die.',
-    imageUrl: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Juice_WRLD_-_Les_Ardentes_2019_%28cropped_2%29.jpg/800px-Juice_WRLD_-_Les_Ardentes_2019_%28cropped_2%29.jpg',
     genres: ['hip-hop', 'emo rap', 'melodic rap'],
     dropDates: ['2024-12-08'],
     products: [
@@ -226,7 +226,7 @@ export const celebrities: Celebrity[] = [
     profession: 'Actress, Comedian',
     knownFor: 'The Golden Girls, The Mary Tyler Moore Show',
     shortBio: 'Americas sweetheart. Comedy legend. Golden Girl forever.',
-    imageUrl: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=800',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/6/6a/Betty_White_1988_Emmy_Awards_%28cropped_2%29.jpg',
     genres: ['television', 'comedy', 'acting'],
     dropDates: ['2024-12-31'],
     products: [
